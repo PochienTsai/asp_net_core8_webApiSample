@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "nEMhF8HX9dUKf8SBTBiW+E44RrehDpcWLTHgnzwnb7s=",
+  "Source": "asp_net_core8_webApiSample",
+  "BasePath": "_content/asp_net_core8_webApiSample",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
