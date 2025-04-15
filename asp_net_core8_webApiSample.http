@@ -1,0 +1,6 @@
+@asp_net_core8_webApiSample_HostAddress = http://localhost:5288
+
+GET {{asp_net_core8_webApiSample_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
