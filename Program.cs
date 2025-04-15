@@ -1,7 +1,9 @@
+using System.Data;
 using System.Text;
 using asp_net_core8_webApiSample.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using MySql.Data.MySqlClient;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -74,6 +76,12 @@ builder.Services.AddScoped<LdapService>(sp =>
         ldapConfig["Password"] ?? string.Empty
     )
 );
+
+// 註冊 MySQL 連線與 DapperService
+builder.Services.AddScoped<IDbConnection>(sp =>
+    new MySql.Data.MySqlClient.MySqlConnection(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+builder.Services.AddScoped<DapperService>();
 
 builder.Services.AddAuthorization();
 
