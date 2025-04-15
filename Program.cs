@@ -28,20 +28,8 @@ builder.Services.AddSwaggerGen(options =>
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
         Description = "請在此處輸入以 Bearer 開頭的 JWT Token，如：Bearer {token}"
     });
-    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
-    {
-        {
-            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-            {
-                Reference = new Microsoft.OpenApi.Models.OpenApiReference
-                {
-                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] {}
-        }
-    });
+    // 只針對有 [Authorize] 的 API 顯示鎖頭
+    options.OperationFilter<asp_net_core8_webApiSample.AuthorizeCheckOperationFilter>();
 });
 
 // 加入 CORS
